@@ -16,7 +16,7 @@ import { AuthRequest } from '../src/types/auth.types.js';
 
 const allowedOrigins = [
   'http://localhost:3000',      // ton frontend local
-  'https://cpluspaie-frontend.vercel.app',, // prod
+  'https://cpluspaie-frontend.vercel.app', // prod
 ];
 
 
