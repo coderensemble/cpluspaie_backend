@@ -45,7 +45,7 @@ const limiter: RateLimitRequestHandler = rateLimit({
 app.use('/api', (req, res, next) => {
     console.log('Origin:', req.headers.origin);
 
-  if (req.method === 'OPTIONS') return res.sendStatus(200);
+  if (req.method === 'OPTIONS') return next();
   return limiter(req, res, next);
 });
 
