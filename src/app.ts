@@ -157,12 +157,13 @@ async function startServer() {
 
 startServer();
 
-//const PORT = process.env.PORT || 3001;
+console.log("??",process.env.NODE_ENV);
+const PORT = process.env.PORT || 3001;
 
-/*if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "development") {
   app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
   });
-}*/
+}
 
 export default app;
