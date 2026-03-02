@@ -29,21 +29,22 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        console.warn("❌ CORS blocked:", origin);
-        callback(new Error("Not allowed by CORS"));
+    origin: function (origin, callback) {
+      // autorise Postman / server-to-server (pas d'origin)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
       }
+
+      console.warn("❌ CORS blocked:", origin);
+      return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Authorization", "Content-Type"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-app.options("*", cors());
 
 app.use(compression() as unknown as express.RequestHandler);
 
