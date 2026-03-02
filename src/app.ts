@@ -14,6 +14,12 @@ import aiRoutes from './routes/ai.routes';
 import { errorHandler } from './middleware/errorHandler.middleware.js';
 import { AuthRequest } from '../src/types/auth.types.js';
 
+const allowedOrigins = [
+  'http://localhost:3000',      // ton frontend local
+  'https://cpluspaie-frontend.vercel.app', // prod
+];
+
+
 const app = express();
 
 /* ======================
@@ -21,16 +27,16 @@ const app = express();
 ====================== */
 app.use(helmet());
 
-app.use(
-  cors({
-    origin: "https://cpluspaie-frontend.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: [
+    "http://localhost:3000",
+    "https://cpluspaie-frontend.vercel.app"
+  ],
+  credentials: true,
+};
 
-app.options("*", cors());
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(compression() as unknown as express.RequestHandler);
 
