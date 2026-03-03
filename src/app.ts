@@ -6,11 +6,11 @@ import rateLimit, { RateLimitRequestHandler } from 'express-rate-limit';
 import OpenAI from 'openai';
 import { connectMongo } from './config/mongodb.js';
 import { pool } from './config/database.js';
-import userRoutes from './routes/user.routes';
-import adminRoutes from './routes/admin.routes';
-import clientRoutes from './routes/client.routes';
-import authRoutes from './routes/auth.routes';
-import aiRoutes from './routes/ai.routes';
+import userRoutes from './routes/user.routes.js';
+import adminRoutes from './routes/admin.routes.js';
+import clientRoutes from './routes/client.routes.js';
+import authRoutes from './routes/auth.routes.js';
+import aiRoutes from './routes/ai.routes.js';
 import { errorHandler } from './middleware/errorHandler.middleware.js';
 import { AuthRequest } from '../src/types/auth.types.js';
 
