@@ -17,8 +17,6 @@ interface Environment {
 
   PORT: number;
   NODE_ENV: string;
-  FRONTEND_URL: string;
-  ADMIN_URL: string;
 }
 
 const getEnvVar = (key: string, defaultValue?: string): string => {
@@ -44,6 +42,4 @@ export const env: Environment = {
 
   PORT: parseInt(getEnvVar("PORT", "3000"), 10),
   NODE_ENV: getEnvVar("NODE_ENV", "development"),
-  FRONTEND_URL: getEnvVar("FRONTEND_URL", "http://localhost:5173"),
-  ADMIN_URL: getEnvVar("ADMIN_URL", "http://localhost:5173/admin"),
 };

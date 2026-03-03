@@ -32,6 +32,5 @@ export const errorHandler = (
 
   res.status(err.status || 500).json({
     error: err.message || 'Internal server error',
-    ...(env.NODE_ENV === 'development' && { stack: err.stack }),
   });
 };
