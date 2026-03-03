@@ -1,6 +1,6 @@
 // routes/ai.routes.ts
 import { Router } from 'express';
-import { openai } from '../services/openai.service'; // wrapper pour OpenAI
+import { openai } from '../services/openai.service.js'; // wrapper pour OpenAI
 
 const router = Router();
 

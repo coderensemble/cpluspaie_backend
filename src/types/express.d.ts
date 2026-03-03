@@ -1,4 +1,4 @@
-import { DBUser, JWTPayload } from './auth.types';
+import { DBUser, JWTPayload } from './auth.types.js';
 import { VerifyJwtResult } from 'express-oauth2-jwt-bearer';
 
 declare global {
