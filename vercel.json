@@ -1,26 +1,11 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "methods": ["OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "https://cpluspaie-frontend.vercel.app",
-        "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
-        "Access-Control-Allow-Headers": "Authorization,Content-Type",
-        "Access-Control-Allow-Credentials": "true"
-      },
-      "dest": "api/index.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "api/index.ts"
-    }
-  ]
+ "version": 2,
+ "builds": [{
+   "src": "/src/app.ts",
+   "use": "@vercel/node"
+ }],
+ "routes": [{
+   "src": "/(.*)",
+   "dest": "/src/app.ts"
+ }]
 }
