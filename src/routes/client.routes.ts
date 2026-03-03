@@ -2,7 +2,7 @@
 import { Router } from 'express';
 import { checkJwt } from '../config/auth0.js';
 import { syncOrCreateUser } from '../middleware/auth.middleware.js';
-import { getMyRequests, getStats, createDevisRequest, createAIRequest } from '../controllers/client.controller';
+import { getMyRequests, getStats, createDevisRequest, createAIRequest } from '../controllers/client.controller.js';
 import { requireClient } from '../middleware/roleCheck.middleware.js';
 
 const router = Router();
